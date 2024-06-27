@@ -1,12 +1,13 @@
 import { getServerSession } from 'next-auth'
 import { FC } from 'react'
 import Link from 'next/link'
-import { buttonVariants } from './ui/Button'
-interface NavbarProps {
-  
-}
+import { buttonVariants } from '@/ui/Button'
+import  SignInButton from '@/components/SignInButton'
+import  SignOutButton from '@/components/SignOutButton'
+import ThemeToggle from '@/components/ThemeToggle'
 
-const Navbar = async ({}) => {
+
+const Navbar = async () => {
 
     const session = await getServerSession()
 
@@ -23,7 +24,7 @@ const Navbar = async ({}) => {
 
 
         <div className='hidden md:flex  gap-4'>
-        <ThemeToggle />
+        <ThemeToggle /> 
         <Link href='/documentation' className={buttonVariants({variant: 'link'})}>
         Documention
         </Link>
@@ -35,7 +36,7 @@ const Navbar = async ({}) => {
               Dashboard
               </Link>
 
-              <SingOutButton />
+              <SignOutButton />
             
             </>
         ) : <SignInButton />}

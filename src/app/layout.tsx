@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import  Providers from "@/components/Providers";
 import  Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/Toast";
 
 
 
@@ -20,6 +21,9 @@ export default function RootLayout({
       <body className='min-h-screen bg-slate-50 dark:bg-slate-900 antialiased'>
         <Providers>
           {children}
+
+          <Toaster position='top-right'/>
+
           <Navbar />
 
 
